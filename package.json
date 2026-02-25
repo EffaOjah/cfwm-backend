@@ -1,0 +1,38 @@
+{
+    "name": "cfwm-server",
+    "version": "1.0.0",
+    "description": "CFWM Backend API Server",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "express",
+        "mysql",
+        "api",
+        "backend"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^3.0.3",
+        "body-parser": "^2.2.2",
+        "cloudinary": "^1.41.3",
+        "cors": "^2.8.6",
+        "dotenv": "^17.2.4",
+        "express": "^5.2.1",
+        "express-rate-limit": "^8.2.1",
+        "helmet": "^8.1.0",
+        "joi": "^18.0.2",
+        "jsonwebtoken": "^9.0.3",
+        "multer": "^2.0.2",
+        "multer-storage-cloudinary": "^4.0.0",
+        "mysql2": "^3.11.5",
+        "winston": "^3.19.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11"
+    }
+}
