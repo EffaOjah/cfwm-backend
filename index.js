@@ -76,6 +76,7 @@ const statsRoutes = require('./routes/statsRoutes.js');
 const newsletterRoutes = require('./routes/newsletterRoutes.js');
 const apaproRoutes = require('./routes/apaproRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
+const livestreamRoutes = require('./routes/livestreamRoutes.js');
 
 // Database
 const { testConnection } = require('./config/database.js');
@@ -91,6 +92,7 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/apapro', apaproRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/livestream', livestreamRoutes);
 
 
 // Health check endpoint
