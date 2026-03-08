@@ -65,6 +65,9 @@ app.use('/api/auth/login', loginLimiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Serve uploaded files statically
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // Routes
 const eventRoutes = require('./routes/eventRoutes.js');
 const testimonyRoutes = require('./routes/testimonyRoutes.js');
@@ -77,6 +80,7 @@ const newsletterRoutes = require('./routes/newsletterRoutes.js');
 const apaproRoutes = require('./routes/apaproRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
 const livestreamRoutes = require('./routes/livestreamRoutes.js');
+const momentRoutes = require('./routes/momentRoutes.js');
 
 // Database
 const { testConnection } = require('./config/database.js');
@@ -93,6 +97,7 @@ app.use('/api/newsletter', newsletterRoutes);
 app.use('/api/apapro', apaproRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/livestream', livestreamRoutes);
+app.use('/api/moments', momentRoutes);
 
 
 // Health check endpoint
