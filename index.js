@@ -81,6 +81,7 @@ const apaproRoutes = require('./routes/apaproRoutes.js');
 const authRoutes = require('./routes/authRoutes.js');
 const livestreamRoutes = require('./routes/livestreamRoutes.js');
 const momentRoutes = require('./routes/momentRoutes.js');
+const eventRegistrationRoutes = require('./routes/eventRegistrationRoutes.js');
 
 // Database
 const { testConnection } = require('./config/database.js');
@@ -98,6 +99,7 @@ app.use('/api/apapro', apaproRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/livestream', livestreamRoutes);
 app.use('/api/moments', momentRoutes);
+app.use('/api/event-registration', eventRegistrationRoutes);
 
 
 // Health check endpoint
