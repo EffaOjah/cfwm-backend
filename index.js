@@ -17,7 +17,8 @@ app.use(helmet()); // Sets various HTTP headers for security
 
 // CORS Hardening
 const allowedOrigins = [
-    process.env.CLIENT_URL, // Production domain from env
+    process.env.CLIENT_URL,
+    'https://www.cfwmintl.com', // Production domain from env
     'http://localhost:5173', // Local development
 ].filter(Boolean);
 
@@ -82,6 +83,7 @@ const authRoutes = require('./routes/authRoutes.js');
 const livestreamRoutes = require('./routes/livestreamRoutes.js');
 const momentRoutes = require('./routes/momentRoutes.js');
 const eventRegistrationRoutes = require('./routes/eventRegistrationRoutes.js');
+const settingRoutes = require('./routes/settingRoutes.js');
 
 // Database
 const { testConnection } = require('./config/database.js');
@@ -100,6 +102,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/livestream', livestreamRoutes);
 app.use('/api/moments', momentRoutes);
 app.use('/api/event-registration', eventRegistrationRoutes);
+app.use('/api/settings', settingRoutes);
 
 
 // Health check endpoint
