@@ -19,8 +19,4 @@ Thumbs.db
 *.swp
 *.swo
 
-
-scripts/
-*.sql
-
 *.zip

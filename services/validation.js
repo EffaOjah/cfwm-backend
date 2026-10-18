@@ -4,6 +4,7 @@ const apaproSchema = Joi.object({
     id: Joi.string().allow('', null), // Allow ID if sent in body
     date: Joi.string().isoDate().required(),
     title: Joi.string().required(),
+    slug: Joi.string().allow('', null),
     subtitle: Joi.string().allow('', null),
     quote: Joi.string().required(),
     scripture: Joi.string().required(),

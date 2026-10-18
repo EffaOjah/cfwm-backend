@@ -13,13 +13,27 @@ dotenv.config({ path: path.join(__dirname, '.env') });
 const app = express();
 
 // Security Middleware
-app.use(helmet()); // Sets various HTTP headers for security
+// crossOriginResourcePolicy is set to 'cross-origin' so external services
+// (social crawlers, WhatsApp, etc.) can load the OG image from /api/apapro/og-image/*
+app.use(helmet({
+    crossOriginResourcePolicy: { policy: 'cross-origin' },
+    // The /share/:slug page uses an inline <script> redirect — allow it for that route only.
+    // We handle it per-route below rather than disabling CSP globally.
+    contentSecurityPolicy: {
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            // Allow the backend's own API origin for image-src so OG images load
+            'img-src': ["'self'", 'data:', 'https:'],
+        },
+    },
+}));
 
 // CORS Hardening
 const allowedOrigins = [
     process.env.CLIENT_URL,
-    'https://www.cfwmintl.com', // Production domain from env
-    'http://localhost:5173', // Local development
+    'https://cfwmintl.com',       // Production no-www
+    'https://www.cfwmintl.com',   // Production www
+    'http://localhost:5173',      // Local development
 ].filter(Boolean);
 
 app.use(cors({
