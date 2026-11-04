@@ -284,6 +284,8 @@ CREATE TABLE IF NOT EXISTS `subscribers` (
 CREATE TABLE IF NOT EXISTS `testimonies` (
   `id` varchar(36) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   `content` text NOT NULL,
   `category` varchar(100) DEFAULT NULL,
   `status` enum('pending','approved','rejected') DEFAULT 'pending',
